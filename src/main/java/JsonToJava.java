@@ -25,13 +25,17 @@ public class JsonToJava {
         while (rs.next()){
             CustomerDetails customerDetails = new CustomerDetails();
             System.out.println(rs.getString("CourseName") +"-("+ rs.getString(2) +")-"+ rs.getInt(3) +"-"+ rs.getString(4));
+
+            String teste = rs.getString(1);
+            if (rs.getString(1).contains("Appium")){
+                System.out.println("Curso cadastrado :" + rs.getString(1));
+            }
             customerDetails.setCourseName(rs.getString("CourseName"));
             customerDetails.setPurchaseDate(rs.getString(2));
             customerDetails.setAmount(rs.getInt(3));
             customerDetails.setLocation(rs.getString(4));
 
             listCustomerDetails.add(customerDetails);
-
         }
 
         for(int i=0; i< listCustomerDetails.size();i++){
